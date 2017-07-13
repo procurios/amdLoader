@@ -1,0 +1,23 @@
+{
+  "name": "amdLoader",
+  "version": "0.1.0",
+  "description": "Minimal AMD implementation",
+  "main": "src/amdLoader.js",
+  "scripts": {
+    "start": "onchange 'src/*.*' -- npm run build",
+    "build": "npm run test && npm run bundle && npm run minify",
+    "test": "./test/test.sh",
+    "bundle": "browserify -do dist/amdLoader.js src/define.js",
+    "minify": "uglifyjs -m -c -o dist/amdLoader.min.js dist/amdLoader.js 2>/dev/null"
+  },
+  "author": "Procurios <dev@procurios.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "8.1.0",
+    "uglify-js": "2.4.16",
+    "onchange": "latest",
+    "tape": "latest",
+    "faucet": "latest",
+    "testling": "latest"
+  }
+}
